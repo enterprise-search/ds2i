@@ -4,6 +4,3 @@
 [submodule "FastPFor"]
 	path = FastPFor
 	url = https://github.com/ot/FastPFor.git
-[submodule "stxxl"]
-	path = stxxl
-	url = https://github.com/stxxl/stxxl.git

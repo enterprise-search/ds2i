@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.20)
 project(DS2I)
 
 configure_file(
@@ -12,7 +12,7 @@ endif()
 
 if (UNIX)
    # C++11
-   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 
    # For hardware popcount and other special instructions
    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
@@ -29,7 +29,7 @@ if (UNIX)
      set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address -fno-omit-frame-pointer")
    endif ()
 
-   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ggdb") # Add debug info anyway
+   #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ggdb") # Add debug info anyway
 
 endif()
 
@@ -39,10 +39,8 @@ include_directories(${Boost_INCLUDE_DIRS})
 link_directories(${Boost_LIBRARY_DIRS})
 
 # stxxl
-add_definitions(-DSTXXL_VERBOSE_LEVEL=-10) # suppress messages to stdout
-add_subdirectory(stxxl)
+find_package(stxxl REQUIRED)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${STXXL_CXX_FLAGS}")
-include_directories(${STXXL_INCLUDE_DIRS})
 
 # add the root directory to include path to make includes absolute
 include_directories(${DS2I_SOURCE_DIR})
