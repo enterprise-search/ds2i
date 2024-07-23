@@ -39,7 +39,12 @@ include_directories(${Boost_INCLUDE_DIRS})
 link_directories(${Boost_LIBRARY_DIRS})
 
 # stxxl
-find_package(stxxl REQUIRED)
+find_library(STXXL
+	NAME stxxl
+	REQUIRED
+	)
+set(STXXL_CXX_FLAGS -fopenmp)
+set(STXXL_LIBRARIES stxxl)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${STXXL_CXX_FLAGS}")
 
 # add the root directory to include path to make includes absolute
