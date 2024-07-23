@@ -3,9 +3,9 @@
 #include <algorithm>
 #include <thread>
 #include <numeric>
+#include <filesystem>
 
 #include <boost/lexical_cast.hpp>
-#include <boost/filesystem/operations.hpp>
 
 #include <succinct/mapper.hpp>
 
@@ -334,7 +334,7 @@ void optimal_hybrid_index(ds2i::global_parameters const& params,
 
     logger() << num_blocks << " overall blocks" << std::endl;
 
-    if (boost::filesystem::exists(lambdas_filename)) {
+    if (std::filesystem::exists(lambdas_filename)) {
         logger() << "Found lambdas file " << lambdas_filename << ", skipping recomputation" << std::endl;
         logger() << "To recompute lambdas, remove file" << std::endl;
     } else {

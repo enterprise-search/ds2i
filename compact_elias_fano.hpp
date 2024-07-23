@@ -12,8 +12,7 @@ namespace ds2i {
     struct compact_elias_fano {
 
         struct offsets {
-            offsets()
-            {}
+            offsets() = default;
 
             offsets(uint64_t base_offset,
                     uint64_t universe,
@@ -140,8 +139,7 @@ namespace ds2i {
 
             typedef std::pair<uint64_t, uint64_t> value_type; // (position, value)
 
-            enumerator()
-            {}
+            enumerator() = default;
 
             enumerator(succinct::bit_vector const& bv, uint64_t offset,
                        uint64_t universe, uint64_t n,
