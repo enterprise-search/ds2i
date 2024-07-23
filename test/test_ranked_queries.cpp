@@ -1,7 +1,7 @@
 #define BOOST_TEST_MODULE ranked_queries
 
 #include "succinct/test_common.hpp"
-#include <boost/test/floating_point_comparison.hpp>
+#include <boost/test/tools/floating_point_comparison.hpp>
 
 #include "ds2i_config.hpp"
 #include "index_types.hpp"
